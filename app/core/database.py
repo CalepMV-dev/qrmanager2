@@ -14,12 +14,12 @@ logger = logging.getLogger(__name__)
 
 
 def normalize_database_url(url: str) -> str:
-    """Convierte postgres:// y postgresql:// al dialecto psycopg2 de SQLAlchemy."""
+    """Convierte postgres:// y postgresql:// al dialecto psycopg 3 de SQLAlchemy."""
     url = url.strip()
     if url.startswith("postgres://"):
         url = "postgresql://" + url[len("postgres://"):]
     if url.startswith("postgresql://"):
-        url = "postgresql+psycopg2://" + url[len("postgresql://"):]
+        url = "postgresql+psycopg://" + url[len("postgresql://"):]
     return url
 
 
